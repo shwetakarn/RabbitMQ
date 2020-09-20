@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "K9d5oE5JnfTMCY4kGtOeNDTEP/i996JIFq/bk7vSRhnDDcDX4k08mazFuQ6MVV6MUyebdBIP8kem7ggKqScVvg==",
+  "success": true,
+  "projectFilePath": "D:\\CAC\\RabbitMQ\\RabbitMq\\RabbitMq.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shwetakarn\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\shwetakarn\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
