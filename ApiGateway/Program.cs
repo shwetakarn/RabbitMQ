@@ -20,11 +20,9 @@ namespace ApiGateway
             Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(temp => { temp.UseUrls("http://*:5000")
             .ConfigureAppConfiguration((h,c) => {
                 c.AddJsonFile("Ocelot.json");
+          
+    }).UseStartup<Startup>();
             });
-    })
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
     }
+    
 }
