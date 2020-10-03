@@ -40,7 +40,7 @@
           "dependencies": {
             "ocelot": {
               "target": "Package",
-              "version": "[*, )"
+              "version": "[16.0.1, )"
             }
           },
           "imports": [

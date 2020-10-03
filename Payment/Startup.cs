@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using RabbitMq;
 
 namespace Payment
 {
@@ -25,7 +26,15 @@ namespace Payment
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen(c=>{
+                c.SwaggerDoc("v1",new Microsoft.OpenApi.Models.OpenApiInfo{
+                  Version="v1",
+                  Title="eshop",
+                  Description="this is identity"  
+                });
+            });
             services.AddControllers();
+            services.AddSingleton<IEventBus,MessageBus>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +44,12 @@ namespace Payment
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c=> {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyApi");
+            
+            });
 
             app.UseHttpsRedirection();
 

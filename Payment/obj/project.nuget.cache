@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "SXdgfOm1CVYDZXfAz0iGi8LdnN1rZS+jWCRGGciMXE65jRh5yHzJi8dViA6cJtPKTCfzDc//EwnaYPNsGW/M/g==",
+  "dgSpecHash": "lUiCrA6C9/h4z6oGiL8R+bqOjfQXQZzG3sMuj8585Q9g/1eksefhsVTUYiqdHhsoawo5DwEV9ujIIMn0DeJHVA==",
   "success": true,
   "projectFilePath": "D:\\CAC\\RabbitMQ\\Payment\\Payment.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\shwetakarn\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\shwetakarn\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\shwetakarn\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\shwetakarn\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\shwetakarn\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\shwetakarn\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
   "logs": []
 }

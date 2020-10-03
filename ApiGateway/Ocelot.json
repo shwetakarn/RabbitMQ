@@ -1,0 +1,31 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/Order",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                    {
+                        "Host": "host.docker.internal",
+                        "Port": 7001
+                    }
+                ],
+            "UpstreamPathTemplate": "/eshop/order",
+            "UpstreamHttpMethod": [ "Get" ]
+        },
+        {
+            "DownstreamPathTemplate": "/Payment",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                    {
+                        "Host": "host.docker.internal",
+                        "Port": 7002
+                    }
+                ],
+            "UpstreamPathTemplate": "/eshop/payment",
+            "UpstreamHttpMethod": [ "Get" ]
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl":"http://localhost:5000"
+    }
+}

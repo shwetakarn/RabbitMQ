@@ -1,0 +1,27 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  apigateway:
+    image: apigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile
+    ports:
+      - 5000
+  orderapi:
+    image: eshop/orderapi
+    build:
+      context: .
+      dockerfile: Order/Dockerfile
+    ports:
+      - 7001:7001
+  paymentapi: 
+    image: eshop/paymentapi
+    build: 
+       context: .
+       dockerfile: Payment/Dockerfile
+    ports:
+      - 7002:7002
+

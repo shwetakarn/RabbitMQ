@@ -486,7 +486,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "ocelot >= *"
+      "ocelot >= 16.0.1"
     ]
   },
   "packageFolders": {
@@ -528,7 +528,7 @@
         "dependencies": {
           "ocelot": {
             "target": "Package",
-            "version": "[*, )"
+            "version": "[16.0.1, )"
           }
         },
         "imports": [
