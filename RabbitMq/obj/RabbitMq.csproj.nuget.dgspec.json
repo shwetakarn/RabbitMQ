@@ -46,6 +46,10 @@
             },
             "RabbitMq.client": {
               "target": "Package",
+              "version": "[6.2.1, )"
+            },
+            "microsoft.extensions.hosting": {
+              "target": "Package",
               "version": "[*, )"
             }
           },
