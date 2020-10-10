@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
+using RabbitMq;
 
 namespace Order
 {
@@ -35,7 +35,10 @@ namespace Order
             });
 
             services.AddControllers();
-           
+           services.AddSingleton<IEventBus, MessageBus>(s => {
+               var lifetime = s.GetRequiredService<IHostApplicationLifetime>();
+               return new MessageBus(lifetime);
+           });
 
         }
 

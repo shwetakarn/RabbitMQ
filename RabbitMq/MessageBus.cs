@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
@@ -7,6 +8,13 @@ namespace RabbitMq
 {
     public class MessageBus : IEventBus
     {
+        IHostApplicationLifetime lifetime;
+        public MessageBus(){}
+
+        public MessageBus(IHostApplicationLifetime lifetime)
+        {
+            this.lifetime = lifetime;
+        }
         public void publish(string msg)
         {
            var factory = new ConnectionFactory{
@@ -30,7 +38,9 @@ namespace RabbitMq
 
         public void subscribe()
         {
-            throw new System.NotImplementedException();
+            lifetime.ApplicationStarted.Register(()=>{
+                SubscribeProcess();
+            });
         }
 
         public void SubscribeProcess()
@@ -48,7 +58,12 @@ namespace RabbitMq
             // Creating queue with in the channel
             channel.QueueDeclare("EshopQueue",false,false,false,null);  
             var consumer = new EventingBasicConsumer(channel);
-            consumer.Received += Consumer_Received;
+            consumer.Received += ((s,e)=> {
+                var body = e.Body.ToArray();
+                var mess = Encoding.UTF8.GetString(body);
+                Console.WriteLine(mess);
+            });
+            channel.BasicConsume("EshopQueue",autoAck:true,consumer:consumer);
         }
 
         private void Consumer_Received(object sender, BasicDeliverEventArgs e)

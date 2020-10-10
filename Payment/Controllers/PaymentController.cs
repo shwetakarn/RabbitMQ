@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RabbitMq;
 
 namespace Payment.Controllers
 {
@@ -17,10 +18,12 @@ namespace Payment.Controllers
         };
 
         private readonly ILogger<PaymentController> _logger;
+        IEventBus _eventBus;
 
-        public PaymentController(ILogger<PaymentController> logger)
+        public PaymentController(ILogger<PaymentController> logger, IEventBus eventBus)
         {
             _logger = logger;
+            this._eventBus = eventBus;
         }
 
         [HttpGet]
