@@ -1,19 +1,12 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 as base
+
 WORKDIR /app
 EXPOSE 7001
-
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
-WORKDIR /src
-COPY ["Order/Order.csproj", "Order/"]
-RUN dotnet restore "Order\Order.csproj"
 COPY . .
-WORKDIR "/src/Order"
-RUN dotnet build "Order.csproj" -c Release -o /app/build
+RUN dotnet build "Order/Order.csproj"
+RUN dotnet publish "Order/Order.csproj" -c Release -o /app/out
 
-FROM build AS publish
-RUN dotnet publish "Order.csproj" -c Release -o /app/publish
-
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Order.dll"]
+COPY --from=base /app/out .
+ENTRYPOINT [ "dotnet","Order.dll" ]
